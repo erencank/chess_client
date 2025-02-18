@@ -36,4 +36,4 @@ class FirstMove(ExampleEngine):
 
 
 if __name__ == "__main__":
-    start_bot(engine=FirstMove())
+    start_bot(engine=RandomMove())

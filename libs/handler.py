@@ -1,21 +1,18 @@
 import asyncio  # noqa: F401
 import json
-import logging
 
 import chess
 import websockets
 from chess.engine import PlayResult
 
-from libs.config import settings
+from libs.config import logger, settings
 from libs.engine import MinimalEngine
-
-logger = logging.getLogger(__name__)
 
 
 async def run_bot(engine: MinimalEngine):
     # Connect to backend using the bot token
     ws_url = f"{settings.backend_ws_url}/bot?token={settings.bot_token}"
-    async with websockets.connect(ws_url) as websocket:
+    async with websockets.connect(ws_url, ping_interval=120, ping_timeout=120) as websocket:
         logger.info("Bot connected to backend.")
 
         # The bot will wait for "request_move" messages from the server
