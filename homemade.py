@@ -20,8 +20,6 @@ class RandomMove(ExampleEngine):
 
 
 class Alphabetical(ExampleEngine):
-    """"""
-
     def search(self, board: chess.Board) -> PlayResult:
         moves = list(board.legal_moves)
         moves.sort(key=board.san)
