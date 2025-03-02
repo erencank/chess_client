@@ -28,18 +28,19 @@ async def run_bot(engine: MinimalEngine):
                     else:
                         # Handle other message types if needed.
                         pass
+            print("Connection closed randomly")
         except websockets.exceptions.ConnectionClosed as e:
-            logger.error(f"WebSocket connection closed: {e}. Reconnecting in 5 seconds...")
+            logger.error(f"WebSocket connection closed: {e}. Reconnecting in 25 seconds...")
             try:
-                await asyncio.sleep(10)
+                await asyncio.sleep(25)
             except KeyboardInterrupt:
                 logger.info("KeyboardInterrupt during reconnection delay. Shutting down bot.")
                 break
             continue
         except Exception as e:
-            logger.error(f"Unexpected error: {e}. Reconnecting in 5 seconds...")
+            logger.error(f"Unexpected error: {e}. Reconnecting in 25 seconds...")
             try:
-                await asyncio.sleep(10)
+                await asyncio.sleep(25)
             except KeyboardInterrupt:
                 logger.info("KeyboardInterrupt during reconnection delay. Shutting down bot.")
                 break
