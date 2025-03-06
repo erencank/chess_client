@@ -33,5 +33,11 @@ class FirstMove(ExampleEngine):
         return PlayResult(moves[0], None)
 
 
+class Homemade(ExampleEngine):
+    def search(self, board: chess.Board) -> PlayResult:
+        # Fill in your code here
+        pass
+
+
 if __name__ == "__main__":
     start_bot(engine=RandomMove())
