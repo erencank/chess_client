@@ -1,6 +1,7 @@
 # Chess Client Bot Library
 
 This is a simple chess bot client library that connects to a backend WebSocket server to receive move requests and send back moves chosen by a user-defined engine. It’s designed to be user-friendly.
+This client is meant to be used on the [ChessBeez platform](https://chess-frontend-4916.onrender.com/)
 
 ## Requirements
 
