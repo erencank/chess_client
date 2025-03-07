@@ -29,7 +29,7 @@ BOT_TOKEN="your-bot-token-here"
 BACKEND_WS_URL="wss://chess-backend-ssn3.onrender.com/ws"
 ```
 
-Adjust these values as necessary.
+Adjust these values as necessary. You can get the bot token by going to the frontend, creating a bot, and copying the token under actions.
 
 ## Running the Bot
 
