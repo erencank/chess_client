@@ -55,6 +55,14 @@ For a preconfigured development environment, you can use the included devcontain
 - The dev container will install Python 3.12 and the uv package manager, and run uv sync automatically.
 - In the container you can start your bot the same way as before using `uv run homemade.py`.
 
+# Writing your bot:
+
+## How it works
+
+Whenever a match is started with your bot, the backend will send a move request message to your bot. This will translate in the `search()` function being called with an updated `board` object. This is a [python-chess](https://python-chess.readthedocs.io/en/latest/) board object. The client then awaits a `PlayResult` move from the engine to send back to the backend. This happens for your bot, and then the opponent's bot, rinse and repeat until the match is over.
+
+What your `search()` engine has to do is to find the optimal move from the list of moves in `board.legal_moves` and return a `PlayResult` object with one the moves.
+
 ## Some helpful tips:
 
 There are a few approaches on how to tackle this Hackathon.
